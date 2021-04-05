@@ -15,3 +15,4 @@ public class Combat extends Pilotada{
     public Combat(String nom, String pCognom) {
         super(nom, pCognom);
     }
+}
