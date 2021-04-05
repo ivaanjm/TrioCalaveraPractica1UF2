@@ -5,49 +5,54 @@
  */
 package m06.uf2.logic.models;
 
+import javax.persistence.CascadeType;
+import javax.persistence.OneToOne;
+
 /**
  *
  * @author mitra
  */
-public class Mecanic {
+public class Mecanic extends Soldat {
+
+    private String nombre;
+    private String Apellido;
     
-    private int idMecanic;
-    private String nomMecanic;
-    private String cognomMecanic;
-    private int edadMecanic;
+    @OneToOne(cascade = {CascadeType.ALL})
+    private Pilotada pilotada;
 
-    public int getIdMecanic() {
-        return idMecanic;
+    public Mecanic(Integer id, String rango) {
+        super(id, rango);
     }
 
-    public void setIdMecanic(int idMecanic) {
-        this.idMecanic = idMecanic;
+    public Mecanic(String nombre, String Apellido, Pilotada pilotada, Integer id, String rango) {
+        super(id, rango);
+        this.nombre = nombre;
+        this.Apellido = Apellido;
+        this.pilotada = pilotada;
     }
 
-    public String getNomMecanic() {
-        return nomMecanic;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNomMecanic(String nomMecanic) {
-        this.nomMecanic = nomMecanic;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getCognomMecanic() {
-        return cognomMecanic;
+    public String getApellido() {
+        return Apellido;
     }
 
-    public void setCognomMecanic(String cognomMecanic) {
-        this.cognomMecanic = cognomMecanic;
+    public void setApellido(String Apellido) {
+        this.Apellido = Apellido;
     }
 
-    public int getEdadMecanic() {
-        return edadMecanic;
+    public Pilotada getPilotada() {
+        return pilotada;
     }
 
-    public void setEdadMecanic(int edadMecanic) {
-        this.edadMecanic = edadMecanic;
+    public void setPilotada(Pilotada pilotada) {
+        this.pilotada = pilotada;
     }
-    
-    
-    
+
 }

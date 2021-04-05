@@ -6,31 +6,71 @@
  */
 package m06.uf2.logic.models;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.ManyToMany;
+
 /**
  *
  * @author mitra
  */
 public class Missio {
     
-    private int idMissio;
-    private String nomMissio;
+    private int id;
+    private String nombre;
+    private String destino;
+    private Date fecha;
+    @ManyToMany(cascade = {CascadeType.ALL}, mappedBy = "misiones")
+    private List<Aeronau> Aeronaus = new ArrayList<>();
 
-    public int getIdMissio() {
-        return idMissio;
+    public Missio(int id, String nombre, String destino, Date fecha) {
+        this.id = id;
+        this.nombre = nombre;
+        this.destino = destino;
+        this.fecha = fecha;
     }
 
-    public void setIdMissio(int idMissio) {
-        this.idMissio = idMissio;
+    public int getId() {
+        return id;
     }
 
-    public String getNomMissio() {
-        return nomMissio;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setNomMissio(String nomMissio) {
-        this.nomMissio = nomMissio;
+    public String getNombre() {
+        return nombre;
     }
-    
-    
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDestino() {
+        return destino;
+    }
+
+    public void setDestino(String destino) {
+        this.destino = destino;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public List<Aeronau> getAeronaus() {
+        return Aeronaus;
+    }
+
+    public void setAeronaus(List<Aeronau> Aeronaus) {
+        this.Aeronaus = Aeronaus;
+    }
+
     
 }

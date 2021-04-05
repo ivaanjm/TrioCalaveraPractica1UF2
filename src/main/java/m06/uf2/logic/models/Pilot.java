@@ -9,43 +9,58 @@ package m06.uf2.logic.models;
  *
  * @author mitra
  */
-public class Pilot {
-    
-    private String DNIPilot;
-    private String nomPilot;
-    private String cognomPilot;
-    private int edadPilot;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-    public String getDNIPilot() {
-        return DNIPilot;
+public class Pilot extends Soldat {
+
+
+    @Column
+    private String nom;
+    @Column
+    private String apellido;
+    @OneToOne
+    private Pilotada pilotada;
+
+    public Pilot(Integer id, String rango) {
+        super(id, rango);
     }
 
-    public void setDNIPilot(String DNIPilot) {
-        this.DNIPilot = DNIPilot;
+    public Pilot(String nom, String apellido, Pilotada pilotada, Integer id, String rango) {
+        super(id, rango);
+        this.nom = nom;
+        this.apellido = apellido;
+        this.pilotada = pilotada;
     }
 
-    public String getNomPilot() {
-        return nomPilot;
+    public String getNom() {
+        return nom;
     }
 
-    public void setNomPilot(String nomPilot) {
-        this.nomPilot = nomPilot;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
-    public String getCognomPilot() {
-        return cognomPilot;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setCognomPilot(String cognomPilot) {
-        this.cognomPilot = cognomPilot;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
-    public int getEdadPilot() {
-        return edadPilot;
+    public Pilotada getPilotada() {
+        return pilotada;
     }
 
-    public void setEdadPilot(int edadPilot) {
-        this.edadPilot = edadPilot;
+    public void setPilotada(Pilotada pilotada) {
+        this.pilotada = pilotada;
     }
+
     
 }

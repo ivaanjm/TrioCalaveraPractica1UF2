@@ -17,26 +17,25 @@ public abstract class Aeronau {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int matricula;
-
+    private int id;
     private String nomAeronau;
-
     private int seients;
+    
+    @ManyToMany(cascade = {CascadeType.ALL})
+    private List<Missio> misiones = new ArrayList<>();
 
-    public Aeronau() {
-    }
-
-    public Aeronau(String nomAeronau, int seients) {
+    public Aeronau(int id, String nomAeronau, int seients) {
+        this.id = id;
         this.nomAeronau = nomAeronau;
         this.seients = seients;
     }
 
-    public int getMatricula() {
-        return matricula;
+    public int getId() {
+        return id;
     }
 
-    public void setMatricula(int matricula) {
-        this.matricula = matricula;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNomAeronau() {
@@ -54,5 +53,14 @@ public abstract class Aeronau {
     public void setSeients(int seients) {
         this.seients = seients;
     }
+
+    public List<Missio> getMisiones() {
+        return misiones;
+    }
+
+    public void setMisiones(List<Missio> misiones) {
+        this.misiones = misiones;
+    }
+    
 
 }
