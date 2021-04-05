@@ -9,21 +9,15 @@ package m06.uf2.logic.models;
  *
  * @author mitra
  */
-public abstract class Autonoma extends Aeronau{
-    
-    String prueba;
+public abstract class Autonoma extends Aeronau {
 
-    public Autonoma(String nomAeronau, int seients) {
-        super(nomAeronau, seients);
-        this.prueba = prueba;
+    private boolean isComate;
+    private Integer KmAutonomia;
+
+    public Autonoma(int id, String nomAeronau, int seients) {
+        super(id, nomAeronau, seients);
     }
 
-    public String getPrueba() {
-        return prueba;
-    }
-
-    public void setPrueba(String prueba) {
-        this.prueba = prueba;
-    }
+   
     
 }
