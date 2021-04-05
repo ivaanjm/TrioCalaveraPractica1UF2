@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.practica1uf2;
+package m06.uf2.logic.models;
 
-/**
- *
- * @author mitra
- */
-public class Prueba {
+
+public class Transport extends Pilotada{
+    
+    public Transport(String nom, String pCognom) {
+        super(nom, pCognom);
+    }
     
 }
