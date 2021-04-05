@@ -13,17 +13,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-
 public abstract class Aeronau {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int matricula;
-    
-    
+
     private String nomAeronau;
-    
-    
+
     private int seients;
 
     public Aeronau() {
@@ -57,9 +54,5 @@ public abstract class Aeronau {
     public void setSeients(int seients) {
         this.seients = seients;
     }
-    
-  
-    
-    
-    
+
 }
