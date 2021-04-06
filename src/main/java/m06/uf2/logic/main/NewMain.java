@@ -26,9 +26,10 @@ public class NewMain {
     public static void main(String[] args) {
         Faker f = new Faker();
         
-        Soldat soldat= ProjectAPI.soldatFactory(Mecanic.class);
-        
+      //  Soldat soldat= ProjectAPI.soldatFactory(Mecanic.class);
+       // System.out.println(soldat.getApellido());
        
+        System.out.println( Utils.randomRango());
     }
 
 }

@@ -1,6 +1,7 @@
 package m06.uf2.logic.main;
 
 import java.security.SecureRandom;
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -26,8 +27,28 @@ public class Utils {
     }
 
     public static String randomRango() {
-        
-        return "";
+
+        ArrayList<String> rangos = new ArrayList<String>();
+        rangos.add("Soldado");
+        rangos.add("Soldado de primera");
+        rangos.add("Cabo");
+        rangos.add("Cabo primero");
+        rangos.add("Cabo primero");
+        rangos.add("Cabo mayor");
+        rangos.add("Sargento");
+        rangos.add("Sargento primero");
+        rangos.add("Brigada");
+        rangos.add("Subteniente");
+        rangos.add("Suboficial mayor");
+        rangos.add("Oficiales");
+        rangos.add("Alférez Teniente");
+        rangos.add("Capitán Comandante");
+        rangos.add("Teniente Coronel");
+        rangos.add("Coronel Oficiales Generales General de brigada");
+        rangos.add("General de división Teniente general General del Aire");
+        rangos.add("Capitán general");
+        Random random = new Random();
+        return rangos.get(random.nextInt(rangos.size()));
     }
 
 }
