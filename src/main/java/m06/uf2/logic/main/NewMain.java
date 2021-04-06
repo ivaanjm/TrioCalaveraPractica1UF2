@@ -11,8 +11,10 @@ import m06.uf2.logic.models.Soldat;
 import m06.uf2.logic.models.Mecanic;
 
 import java.lang.Class;
+import java.util.logging.Level;
 import m06.uf2.logic.models.Combat;
 import m06.uf2.logic.models.Pilotada;
+import org.hibernate.Session;
 
 /**
  *
@@ -26,9 +28,15 @@ public class NewMain {
     public static void main(String[] args) {
         Faker f = new Faker();
         
+        
+        java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF);
+        Session session = SingleSession.getSesio();
+        session.beginTransaction();
         Soldat soldat= ProjectAPI.soldatFactory(Mecanic.class);
         
-       
+        
+        session.getTransaction().commit();
+	session.close();
+          
     }
-
 }
