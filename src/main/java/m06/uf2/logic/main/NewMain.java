@@ -11,6 +11,8 @@ import m06.uf2.logic.models.Soldat;
 import m06.uf2.logic.models.Mecanic;
 
 import java.lang.Class;
+import m06.uf2.logic.models.Combat;
+import m06.uf2.logic.models.Pilotada;
 
 /**
  *
@@ -23,10 +25,10 @@ public class NewMain {
      */
     public static void main(String[] args) {
         Faker f = new Faker();
-        Class<Pilot> Pilot = null ;
-        Class<Mecanic> Mecanic=null;
-        Soldat soldat= ProjectAPI.soldatFactory(Mecanic);
         
+        Soldat soldat= ProjectAPI.soldatFactory(Mecanic.class);
+        
+       
     }
 
 }

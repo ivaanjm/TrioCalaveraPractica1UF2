@@ -35,4 +35,23 @@ public abstract class Pilotada extends Aeronau {
         super(id, nomAeronau, tipo);
         this.piloto = piloto;
     }
+
+
+
+    public Pilot getPiloto() {
+        return piloto;
+    }
+
+    public void setPiloto(Pilot piloto) {
+        this.piloto = piloto;
+    }
+
+    public List<Mecanic> getMecanic() {
+        return mecanic;
+    }
+
+    public void setMecanic(List<Mecanic> mecanic) {
+        this.mecanic = mecanic;
+    }
+    
 }

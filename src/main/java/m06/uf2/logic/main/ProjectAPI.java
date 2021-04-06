@@ -39,7 +39,17 @@ public class ProjectAPI {
      * @return
      */
     public static Aeronau addMecanicsToPilotada(List<Soldat> lo, Pilotada p) {
-
+        List<Mecanic> ret = null;
+        for (Soldat soldat : lo) {
+            if (soldat.getEsp().toLowerCase().equals("mecanic")) {
+                ret.add(new Mecanic(soldat.getId(), soldat.getRango(), soldat.getNombre(), soldat.getApellido(), soldat.getEsp()));
+            }
+        }
+        if (ret != null) {
+            p.setMecanic(ret);
+        } else {
+            System.out.println("error no hay mecanicos");
+        }
         return p;
     }
 
@@ -51,7 +61,9 @@ public class ProjectAPI {
      * @return
      */
     public static Aeronau addMissionsToAeronau(List<Missio> lm, Aeronau a) {
-
+        for (Missio missio : lm) {
+            missio.setAeronaus(a);
+        }
         return a;
     }
 
@@ -63,7 +75,7 @@ public class ProjectAPI {
      * @return
      */
     public static Aeronau addPilotToAeronauPilotada(Pilot p, Pilotada a) {
-
+        a.setPiloto(p);
         return a;
     }
 
@@ -114,7 +126,7 @@ public class ProjectAPI {
                 if (soldat.getEsp().toLowerCase().equals("mecanic")) {
                     ret.add(soldat);
                 }
-
+                
             } while (ret.size() <= elements);
         }
         if (ret.size() < elements) {
@@ -141,13 +153,13 @@ public class ProjectAPI {
                     if (soldat.getEsp().toLowerCase().equals("pilot")) {
                         ret.add(soldat);
                     }
-
+                    
                 } while (ret.size() <= elements);
             }
         } else {
             System.out.println("La lista esta vacia ");
         }
-
+        
         if (ret.size() < elements) {
             System.out.println("No hay tantos pilotos, el numero maximo es de :" + ret.size());
         }
@@ -161,20 +173,20 @@ public class ProjectAPI {
      * @return
      */
     public static List<Missio> missionsFactory(int elements) {
-         Session session = SingleSession.getSesio();
+        Session session = SingleSession.getSesio();
         session.beginTransaction();
         List<Missio> completa = session.createQuery("FROM Missio").list();
         List<Missio> ret = null;
         if (!completa.isEmpty()) {
             for (Missio missio : completa) {
                 do {
-                        ret.add(missio);
+                    ret.add(missio);
                 } while (ret.size() <= elements);
             }
         } else {
             System.out.println("La lista esta vacia ");
         }
-
+        
         if (ret.size() < elements) {
             System.out.println("No hay tantas Misiones, el numero maximo es de :" + ret.size());
         }
@@ -213,8 +225,8 @@ public class ProjectAPI {
      */
     public static Missio missioFactory() {
         Faker f = new Faker();
-        Missio ret =new Missio(0, f.pokemon().name(), f.address().country(), f.date().future(f.number().randomDigit(), TimeUnit.DAYS));
+        Missio ret = new Missio(0, f.pokemon().name(), f.address().country(), f.date().future(f.number().randomDigit(), TimeUnit.DAYS));
         return ret;
     }
-
+    
 }

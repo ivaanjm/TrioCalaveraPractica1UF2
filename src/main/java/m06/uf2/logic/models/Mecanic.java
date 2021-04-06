@@ -20,10 +20,15 @@ public class Mecanic extends Soldat {
     @OneToOne(cascade = {CascadeType.ALL})
     private Pilotada pilotada;
 
+    public Mecanic(Integer id, String rango, String nombre, String apellido, String esp) {
+        super(id, rango, nombre, apellido, esp);
+    }
+
     public Mecanic(Pilotada pilotada, Integer id, String rango, String nombre, String apellido, String esp) {
         super(id, rango, nombre, apellido, esp);
         this.pilotada = pilotada;
     }
+
 
     public Pilotada getPilotada() {
         return pilotada;
