@@ -7,8 +7,13 @@ package m06.uf2.logic.main;
 
 import com.github.javafaker.Faker;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
 import m06.uf2.logic.models.Combat;
 import m06.uf2.logic.models.Transport;
 import m06.uf2.logic.models.Mecanic;
@@ -18,6 +23,7 @@ import m06.uf2.logic.models.Pilot;
 import m06.uf2.logic.models.Dron;
 import m06.uf2.logic.models.Aeronau;
 import m06.uf2.logic.models.Pilotada;
+import org.hibernate.Session;
 
 /**
  *
@@ -33,9 +39,7 @@ public class ProjectAPI {
      * @return
      */
     public static Aeronau addMecanicsToPilotada(List<Soldat> lo, Pilotada p) {
-        Faker f = new Faker();
-        f.name();
-        System.out.println(f.name());
+
         return p;
     }
 
@@ -72,7 +76,25 @@ public class ProjectAPI {
      * @return
      */
     public static Aeronau aeronauFactory(Class<?> tipus) {
-
+        Aeronau ret = null;
+        Faker f = new Faker();
+        switch (tipus.getName().toLowerCase()) {
+            case "transport":
+                ret = new Aeronau(0, f.name().firstName(), tipus.getName().toLowerCase()) {
+                };
+                break;
+            case "combat":
+                ret = new Aeronau(0, f.name().firstName(), tipus.getName().toLowerCase()) {
+                };
+                break;
+            case "dron":
+                ret = new Aeronau(0, f.name().firstName(), tipus.getName().toLowerCase()) {
+                };
+                break;
+            default:
+                System.out.println("Exepción solo pilotos o mecanicos ");
+                break;
+        }
         return ret;
     }
 
@@ -83,8 +105,23 @@ public class ProjectAPI {
      * @return
      */
     public static List<Soldat> mecanicsFactory(int elements) {
+        Session session = SingleSession.getSesio();
+        session.beginTransaction();
+        List<Soldat> completa = session.createQuery("FROM Soldat").list();
+        List<Soldat> ret = null;
+        for (Soldat soldat : completa) {
+            do {
+                if (soldat.getEsp().toLowerCase().equals("mecanic")) {
+                    ret.add(soldat);
+                }
 
-       return ret;
+            } while (ret.size() <= elements);
+        }
+        if (ret.size() < elements) {
+            System.out.println("No hay tantos mecanicos, el numero maximo es de :" + ret.size());
+        }
+        // session.close();
+        return ret;
     }
 
     /**
@@ -94,7 +131,26 @@ public class ProjectAPI {
      * @return
      */
     public static List<Soldat> pilotsFactory(int elements) {
+        Session session = SingleSession.getSesio();
+        session.beginTransaction();
+        List<Soldat> completa = session.createQuery("FROM Soldat").list();
+        List<Soldat> ret = null;
+        if (!completa.isEmpty()) {
+            for (Soldat soldat : completa) {
+                do {
+                    if (soldat.getEsp().toLowerCase().equals("pilot")) {
+                        ret.add(soldat);
+                    }
 
+                } while (ret.size() <= elements);
+            }
+        } else {
+            System.out.println("La lista esta vacia ");
+        }
+
+        if (ret.size() < elements) {
+            System.out.println("No hay tantos pilotos, el numero maximo es de :" + ret.size());
+        }
         return ret;
     }
 
@@ -105,7 +161,23 @@ public class ProjectAPI {
      * @return
      */
     public static List<Missio> missionsFactory(int elements) {
+         Session session = SingleSession.getSesio();
+        session.beginTransaction();
+        List<Missio> completa = session.createQuery("FROM Missio").list();
+        List<Missio> ret = null;
+        if (!completa.isEmpty()) {
+            for (Missio missio : completa) {
+                do {
+                        ret.add(missio);
+                } while (ret.size() <= elements);
+            }
+        } else {
+            System.out.println("La lista esta vacia ");
+        }
 
+        if (ret.size() < elements) {
+            System.out.println("No hay tantas Misiones, el numero maximo es de :" + ret.size());
+        }
         return ret;
     }
 
@@ -116,7 +188,21 @@ public class ProjectAPI {
      * @return
      */
     public static Soldat soldatFactory(Class<?> tipus) {
-
+        Faker f = new Faker();
+        Soldat ret = null;
+        switch (tipus.getName().toLowerCase()) {
+            case "piloto":
+                ret = new Soldat(0, "Cap", f.name().firstName(), f.name().lastName(), tipus.getName()) {
+                };
+                break;
+            case "mecanico":
+                ret = new Soldat(0, "Cap", f.name().firstName(), f.name().lastName(), tipus.getName()) {
+                };
+                break;
+            default:
+                System.out.println("Exepción solo pilotos o mecanicos ");
+                break;
+        }
         return ret;
     }
 
@@ -126,9 +212,9 @@ public class ProjectAPI {
      * @return
      */
     public static Missio missioFactory() {
-
+        Faker f = new Faker();
+        Missio ret =new Missio(0, f.pokemon().name(), f.address().country(), f.date().future(f.number().randomDigit(), TimeUnit.DAYS));
         return ret;
-
     }
 
 }
