@@ -204,11 +204,11 @@ public class ProjectAPI {
         Soldat ret = null;
         switch (tipus.getName().toLowerCase()) {
             case "piloto":
-                ret = new Soldat(0, "Cap", f.name().firstName(), f.name().lastName(), tipus.getName()) {
+                ret = new Soldat(0, Utils.randomRango(), f.name().firstName(), f.name().lastName(), tipus.getName()) {
                 };
                 break;
             case "mecanico":
-                ret = new Soldat(0, "Cap", f.name().firstName(), f.name().lastName(), tipus.getName()) {
+                ret = new Soldat(0, Utils.randomRango(), f.name().firstName(), f.name().lastName(), tipus.getName()) {
                 };
                 break;
             default:

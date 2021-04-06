@@ -10,8 +10,6 @@ import java.util.List;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertTrue;
 import m06.uf2.logic.main.ProjectAPI;
-import m06.uf2.logic.main.ProjectAPI;
-import m06.uf2.logic.main.SingleSession;
 import m06.uf2.logic.main.SingleSession;
 import m06.uf2.logic.models.Combat;
 import m06.uf2.logic.models.Transport;

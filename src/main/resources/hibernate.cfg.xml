@@ -12,7 +12,16 @@
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
         <property name="use_sql_comments">true</property>
-        <mapping class="com.mycompany.m06.uf2.logic.models."/>
-
+        <mapping class="m06.uf2.logic.models.Combat"/>
+        <mapping class="m06.uf2.logic.models.Missio"/>
+        <mapping class="m06.uf2.logic.models.Dron"/>
+        <mapping class="m06.uf2.logic.models.Mecanic"/>
+        <mapping class="m06.uf2.logic.models.Pilot"/>
+        <mapping class="m06.uf2.logic.models.Transport"/>
+        
+         <mapping class="m06.uf2.logic.models.Aeronau"/>
+          <mapping class="m06.uf2.logic.models.Autonoma"/>
+           <mapping class="m06.uf2.logic.models.Pilotada"/>
+            <mapping class="m06.uf2.logic.models.Soldat"/>
     </session-factory>
 </hibernate-configuration>

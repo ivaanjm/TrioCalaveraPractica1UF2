@@ -21,7 +21,6 @@ import javax.persistence.Table;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Aeronau {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
@@ -30,10 +29,10 @@ public abstract class Aeronau {
     private String nomAeronau;
     @Column
     private String tipo;
-
-
     @ManyToMany(cascade = {CascadeType.ALL})
     private List<Missio> misiones = new ArrayList<>();
+    
+    
     public Aeronau(int id, String nomAeronau, String tipo) {
         this.id = id;
         this.nomAeronau = nomAeronau;
