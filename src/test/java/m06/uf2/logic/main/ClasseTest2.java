@@ -55,7 +55,9 @@ public class ClasseTest2 {
         Pilotada ap;
                 
         p = (Pilot)ProjectAPI.soldatFactory(Pilot.class);
+       
         ap = (Pilotada)ProjectAPI.aeronauFactory(Combat.class);
+         
         ProjectAPI.addPilotToAeronauPilotada(p, ap);
         
         session.save(p);

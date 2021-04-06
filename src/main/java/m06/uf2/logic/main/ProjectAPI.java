@@ -61,9 +61,13 @@ public class ProjectAPI {
      * @return
      */
     public static Aeronau addMissionsToAeronau(List<Missio> lm, Aeronau a) {
+        List<Aeronau> aeronaus = null;
+         aeronaus.add(a);
         for (Missio missio : lm) {
-            missio.setAeronaus(a);
+            missio.setAeronaus(aeronaus);    
+           
         }
+      
         return a;
     }
 
@@ -90,17 +94,17 @@ public class ProjectAPI {
     public static Aeronau aeronauFactory(Class<?> tipus) {
         Aeronau ret = null;
         Faker f = new Faker();
-        switch (tipus.getName().toLowerCase()) {
+        switch (tipus.getSimpleName().toLowerCase()) {
             case "transport":
-                ret = new Aeronau(0, f.name().firstName(), tipus.getName().toLowerCase()) {
+                ret = new Aeronau(0, f.name().firstName(), tipus.getSimpleName().toLowerCase()) {
                 };
                 break;
             case "combat":
-                ret = new Aeronau(0, f.name().firstName(), tipus.getName().toLowerCase()) {
+                ret = new Aeronau(0, f.name().firstName(), tipus.getSimpleName().toLowerCase()) {
                 };
                 break;
             case "dron":
-                ret = new Aeronau(0, f.name().firstName(), tipus.getName().toLowerCase()) {
+                ret = new Aeronau(0, f.name().firstName(), tipus.getSimpleName().toLowerCase()) {
                 };
                 break;
             default:
@@ -202,17 +206,20 @@ public class ProjectAPI {
     public static Soldat soldatFactory(Class<?> tipus) {
         Faker f = new Faker();
         Soldat ret = null;
-        switch (tipus.getName().toLowerCase()) {
+        switch (tipus.getSimpleName().toLowerCase()) {
             case "piloto":
-                ret = new Soldat(0, Utils.randomRango(), f.name().firstName(), f.name().lastName(), tipus.getName()) {
+                ret = new Soldat(0, Utils.randomRango(), f.name().firstName(), f.name().lastName(), tipus.getSimpleName()) {
                 };
+                System.out.println("piloto");
                 break;
             case "mecanico":
-                ret = new Soldat(0, Utils.randomRango(), f.name().firstName(), f.name().lastName(), tipus.getName()) {
+                ret = new Soldat(0, Utils.randomRango(), f.name().firstName(), f.name().lastName(), tipus.getSimpleName()) {
                 };
+                System.out.println("mecanico");
                 break;
             default:
                 System.out.println("Exepción solo pilotos o mecanicos ");
+                System.out.println(tipus.getSimpleName().toLowerCase());
                 break;
         }
         return ret;

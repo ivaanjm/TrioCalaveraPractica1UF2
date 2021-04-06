@@ -36,7 +36,8 @@ public class Missio {
     @Column
     private Date fecha;
     @ManyToMany(cascade = {CascadeType.ALL}, mappedBy = "misiones")
-    private Aeronau Aeronaus ;
+    private List<Aeronau> Aeronaus ;
+    
 
     public Missio(int id, String nombre, String destino, Date fecha) {
         this.id = id;
@@ -77,11 +78,11 @@ public class Missio {
         this.fecha = fecha;
     }
 
-    public Aeronau getAeronaus() {
+    public List<Aeronau> getAeronaus() {
         return Aeronaus;
     }
 
-    public void setAeronaus(Aeronau Aeronaus) {
+    public void setAeronaus(List<Aeronau> Aeronaus) {
         this.Aeronaus = Aeronaus;
     }
 
