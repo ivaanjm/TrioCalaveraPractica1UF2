@@ -17,41 +17,20 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+@Entity
 public class Pilot extends Soldat {
 
 
-    @Column
-    private String nom;
-    @Column
-    private String apellido;
     @OneToOne
     private Pilotada pilotada;
 
-    public Pilot(Integer id, String rango) {
-        super(id, rango);
+    public Pilot(Integer id, String rango, String nombre, String apellido, String esp) {
+        super(id, rango, nombre, apellido, esp);
     }
 
-    public Pilot(String nom, String apellido, Pilotada pilotada, Integer id, String rango) {
-        super(id, rango);
-        this.nom = nom;
-        this.apellido = apellido;
+    public Pilot( Pilotada pilotada, Integer id, String rango, String nombre, String apellido, String esp) {
+        super(id, rango, nombre, apellido, esp);
         this.pilotada = pilotada;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
     }
 
     public Pilotada getPilotada() {
@@ -62,5 +41,4 @@ public class Pilot extends Soldat {
         this.pilotada = pilotada;
     }
 
-    
 }

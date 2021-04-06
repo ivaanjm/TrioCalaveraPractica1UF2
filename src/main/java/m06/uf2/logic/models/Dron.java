@@ -5,24 +5,30 @@
  */
 package m06.uf2.logic.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-public class Dron extends Autonoma{
-    
-  private  Integer alturaMax;
-  private Integer distanciaMax;
+@Entity
+public class Dron extends Autonoma {
 
-    public Dron(int id, String nomAeronau, int seients) {
-        super(id, nomAeronau, seients);
+    @Column
+    private Integer alturaMax;
+    @Column
+    private Integer distanciaMax;
+
+    public Dron(int id, String nomAeronau, String tipo) {
+        super(id, nomAeronau, tipo);
     }
 
-    public Dron(Integer alturaMax, Integer distanciaMax, int id, String nomAeronau, int seients) {
-        super(id, nomAeronau, seients);
+    public Dron(Integer alturaMax, Integer distanciaMax, int id, String nomAeronau, String tipo) {
+        super(id, nomAeronau, tipo);
         this.alturaMax = alturaMax;
         this.distanciaMax = distanciaMax;
     }
 
-    public Dron(Integer alturaMax, Integer distanciaMax, Integer velocidadMax, Integer KmAutonomia, int id, String nomAeronau, int seients) {
-        super(velocidadMax, KmAutonomia, id, nomAeronau, seients);
+    public Dron(Integer alturaMax, Integer distanciaMax, Integer velocidadMax, Integer KmAutonomia, int id, String nomAeronau, String tipo) {
+        super(velocidadMax, KmAutonomia, id, nomAeronau, tipo);
         this.alturaMax = alturaMax;
         this.distanciaMax = distanciaMax;
     }
@@ -41,5 +47,5 @@ public class Dron extends Autonoma{
 
     public void setDistanciaMax(Integer distanciaMax) {
         this.distanciaMax = distanciaMax;
-    }    
+    }
 }

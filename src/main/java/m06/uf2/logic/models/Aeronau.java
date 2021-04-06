@@ -8,27 +8,47 @@ package m06.uf2.logic.models;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Aeronau {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
     private int id;
+    @Column
     private String nomAeronau;
-    private int seients;
-    
+    @Column
+    private String tipo;
+
+
     @ManyToMany(cascade = {CascadeType.ALL})
     private List<Missio> misiones = new ArrayList<>();
-
-    public Aeronau(int id, String nomAeronau, int seients) {
+    public Aeronau(int id, String nomAeronau, String tipo) {
         this.id = id;
         this.nomAeronau = nomAeronau;
-        this.seients = seients;
+        this.tipo = tipo;
     }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+    
+
 
     public int getId() {
         return id;
@@ -45,15 +65,6 @@ public abstract class Aeronau {
     public void setNomAeronau(String nomAeronau) {
         this.nomAeronau = nomAeronau;
     }
-
-    public int getSeients() {
-        return seients;
-    }
-
-    public void setSeients(int seients) {
-        this.seients = seients;
-    }
-
     public List<Missio> getMisiones() {
         return misiones;
     }
@@ -61,6 +72,5 @@ public abstract class Aeronau {
     public void setMisiones(List<Missio> misiones) {
         this.misiones = misiones;
     }
-    
 
 }

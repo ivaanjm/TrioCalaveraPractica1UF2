@@ -6,6 +6,11 @@
 package m06.uf2.logic.main;
 
 import com.github.javafaker.Faker;
+import m06.uf2.logic.models.Pilot;
+import m06.uf2.logic.models.Soldat;
+import m06.uf2.logic.models.Mecanic;
+
+import java.lang.Class;
 
 /**
  *
@@ -17,9 +22,11 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Faker f =new Faker();
-        System.out.println("hola "+f.name().firstName());
-                
+        Faker f = new Faker();
+        Class<Pilot> Pilot = null ;
+        Class<Mecanic> Mecanic=null;
+        Soldat soldat= ProjectAPI.soldatFactory(Mecanic);
+        
     }
-    
+
 }

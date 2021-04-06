@@ -5,40 +5,48 @@
  */
 package m06.uf2.logic.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  *
  * @author mitra
  */
-public class Combat extends Pilotada{
+@Entity
+public class Combat extends Pilotada {
 
-    private String tipo;
+    @Column
+    private String Arma;
+    @Column
     private String nombre;
-    
-    
-    public Combat(int id, String nomAeronau, int seients) {
-        super(id, nomAeronau, seients);
+
+    public Combat(Pilot piloto, int id, String nomAeronau, String tipo) {
+        super(piloto, id, nomAeronau, tipo);
     }
 
-    public Combat(String tipo, String nombre, int id, String nomAeronau, int seients) {
-        super(id, nomAeronau, seients);
-        this.tipo = tipo;
+    public Combat(String Arma, String nombre, int id, String nomAeronau, String tipo) {
+        super(id, nomAeronau, tipo);
+        this.Arma = Arma;
         this.nombre = nombre;
     }
 
-    public Combat(String tipo, String nombre, String dni, String nom, String pCognom, Pilot piloto, int id, String nomAeronau, int seients) {
-        super(dni, nom, pCognom, piloto, id, nomAeronau, seients);
-        this.tipo = tipo;
+    public Combat(String Arma, String nombre, Pilot piloto, int id, String nomAeronau, String tipo) {
+        super(piloto, id, nomAeronau, tipo);
+        this.Arma = Arma;
         this.nombre = nombre;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getArma() {
+        return Arma;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setArma(String Arma) {
+        this.Arma = Arma;
     }
+
+
+
 
     public String getNombre() {
         return nombre;
@@ -47,6 +55,6 @@ public class Combat extends Pilotada{
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
-    
+
+
 }

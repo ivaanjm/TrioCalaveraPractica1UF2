@@ -6,45 +6,23 @@
 package m06.uf2.logic.models;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
 /**
  *
  * @author mitra
  */
+@Entity
 public class Mecanic extends Soldat {
 
-    private String nombre;
-    private String Apellido;
-    
     @OneToOne(cascade = {CascadeType.ALL})
     private Pilotada pilotada;
 
-    public Mecanic(Integer id, String rango) {
-        super(id, rango);
-    }
-
-    public Mecanic(String nombre, String Apellido, Pilotada pilotada, Integer id, String rango) {
-        super(id, rango);
-        this.nombre = nombre;
-        this.Apellido = Apellido;
+    public Mecanic(Pilotada pilotada, Integer id, String rango, String nombre, String apellido, String esp) {
+        super(id, rango, nombre, apellido, esp);
         this.pilotada = pilotada;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return Apellido;
-    }
-
-    public void setApellido(String Apellido) {
-        this.Apellido = Apellido;
     }
 
     public Pilotada getPilotada() {
@@ -55,4 +33,5 @@ public class Mecanic extends Soldat {
         this.pilotada = pilotada;
     }
 
+   
 }

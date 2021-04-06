@@ -5,25 +5,35 @@
  */
 package m06.uf2.logic.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
+
 /**
  *
  * @author mitra
  */
+@Entity
 public abstract class Autonoma extends Aeronau {
 
+    @Column
     private Integer velocidadMax;
+    @Column
     private Integer KmAutonomia;
 
-    public Autonoma(int id, String nomAeronau, int seients) {
-        super(id, nomAeronau, seients);
+    public Autonoma(int id, String nomAeronau, String tipo) {
+        super(id, nomAeronau, tipo);
     }
 
-    public Autonoma(Integer velocidadMax, Integer KmAutonomia, int id, String nomAeronau, int seients) {
-        super(id, nomAeronau, seients);
+    public Autonoma(Integer velocidadMax, Integer KmAutonomia, int id, String nomAeronau, String tipo) {
+        super(id, nomAeronau, tipo);
         this.velocidadMax = velocidadMax;
         this.KmAutonomia = KmAutonomia;
     }
 
+    
     public Integer getVelocidadMax() {
         return velocidadMax;
     }
@@ -40,6 +50,4 @@ public abstract class Autonoma extends Aeronau {
         this.KmAutonomia = KmAutonomia;
     }
 
-   
-    
 }

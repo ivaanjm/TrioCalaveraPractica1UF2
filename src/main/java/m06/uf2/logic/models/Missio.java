@@ -10,17 +10,30 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author mitra
  */
+@Entity
 public class Missio {
-    
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
     private int id;
+    @Column
     private String nombre;
+    @Column
     private String destino;
+    @Column
     private Date fecha;
     @ManyToMany(cascade = {CascadeType.ALL}, mappedBy = "misiones")
     private List<Aeronau> Aeronaus = new ArrayList<>();
@@ -72,5 +85,4 @@ public class Missio {
         this.Aeronaus = Aeronaus;
     }
 
-    
 }

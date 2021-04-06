@@ -5,25 +5,33 @@
  */
 package m06.uf2.logic.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-public class Transport extends Pilotada{
+@Entity
+@Table(name = "transport")
+public class Transport extends Pilotada {
+
+    @Column
     private String carga;
-    private String distancia;
+    @Column
+    private String distanciaDestino;
 
-    public Transport(int id, String nomAeronau, int seients) {
-        super(id, nomAeronau, seients);
+    public Transport(int id, String nomAeronau, String tipo) {
+        super(id, nomAeronau, tipo);
     }
 
-    public Transport(String carga, String distancia, int id, String nomAeronau, int seients) {
-        super(id, nomAeronau, seients);
+    public Transport(String carga, String distanciaDestino, int id, String nomAeronau, String tipo) {
+        super(id, nomAeronau, tipo);
         this.carga = carga;
-        this.distancia = distancia;
+        this.distanciaDestino = distanciaDestino;
     }
 
-    public Transport(String carga, String distancia, String dni, String nom, String pCognom, Pilot piloto, int id, String nomAeronau, int seients) {
-        super(dni, nom, pCognom, piloto, id, nomAeronau, seients);
+    public Transport(String carga, String distanciaDestino, Pilot piloto, int id, String nomAeronau, String tipo) {
+        super(piloto, id, nomAeronau, tipo);
         this.carga = carga;
-        this.distancia = distancia;
+        this.distanciaDestino = distanciaDestino;
     }
 
     public String getCarga() {
@@ -34,13 +42,14 @@ public class Transport extends Pilotada{
         this.carga = carga;
     }
 
-    public String getDistancia() {
-        return distancia;
+    public String getDistanciaDestino() {
+        return distanciaDestino;
     }
 
-    public void setDistancia(String distancia) {
-        this.distancia = distancia;
+    public void setDistanciaDestino(String distanciaDestino) {
+        this.distanciaDestino = distanciaDestino;
     }
-    
-   
+
+  
+
 }
