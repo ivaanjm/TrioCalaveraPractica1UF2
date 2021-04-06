@@ -18,7 +18,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table
-public class Soldat {
+public abstract class Soldat {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

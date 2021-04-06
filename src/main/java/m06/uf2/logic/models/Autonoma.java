@@ -11,11 +11,33 @@ package m06.uf2.logic.models;
  */
 public abstract class Autonoma extends Aeronau {
 
-    private boolean isComate;
+    private Integer velocidadMax;
     private Integer KmAutonomia;
 
     public Autonoma(int id, String nomAeronau, int seients) {
         super(id, nomAeronau, seients);
+    }
+
+    public Autonoma(Integer velocidadMax, Integer KmAutonomia, int id, String nomAeronau, int seients) {
+        super(id, nomAeronau, seients);
+        this.velocidadMax = velocidadMax;
+        this.KmAutonomia = KmAutonomia;
+    }
+
+    public Integer getVelocidadMax() {
+        return velocidadMax;
+    }
+
+    public void setVelocidadMax(Integer velocidadMax) {
+        this.velocidadMax = velocidadMax;
+    }
+
+    public Integer getKmAutonomia() {
+        return KmAutonomia;
+    }
+
+    public void setKmAutonomia(Integer KmAutonomia) {
+        this.KmAutonomia = KmAutonomia;
     }
 
    

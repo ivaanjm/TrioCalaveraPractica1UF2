@@ -24,114 +24,111 @@ import m06.uf2.logic.models.Pilotada;
  * @author manel
  */
 public class ProjectAPI {
-    
+
     /**
      * Afegeix mecanics a aeronau pilotada
+     *
      * @param lo LLista dels mecanics
      * @param p Aeronau
-     * @return 
+     * @return
      */
-    public static Aeronau addMecanicsToPilotada(List<Soldat> lo, Pilotada p)
-    {
-                         
+    public static Aeronau addMecanicsToPilotada(List<Soldat> lo, Pilotada p) {
+        Faker f = new Faker();
+        f.name();
+        System.out.println(f.name());
         return p;
     }
-    
+
     /**
      * Afegeix missions a Aeronau
+     *
      * @param lm
      * @param a Aeronau
-     * @return 
+     * @return
      */
-    public static Aeronau addMissionsToAeronau(List<Missio> lm, Aeronau a)
-    {
-      
-             
+    public static Aeronau addMissionsToAeronau(List<Missio> lm, Aeronau a) {
+
         return a;
     }
-    
+
     /**
      * Afegeix pilot a aeronau pilotada
+     *
      * @param p aeronau
      * @param a
-     * @return 
+     * @return
      */
-    public static Aeronau addPilotToAeronauPilotada(Pilot p, Pilotada a)
-    {
-               
+    public static Aeronau addPilotToAeronauPilotada(Pilot p, Pilotada a) {
+
         return a;
     }
-    
+
     /**
-     * Retorna una instancia del tipus demanat amb dades ficticies
-     * Exemple d'utilització:
-     *   Pilotada p = (Pilotada)ProjectAPI.aeronauFactory(Combat.class);
+     * Retorna una instancia del tipus demanat amb dades ficticies Exemple
+     * d'utilització: Pilotada p =
+     * (Pilotada)ProjectAPI.aeronauFactory(Combat.class);
+     *
      * @param tipus (Dron, Transport, Combat)
-     * @return 
+     * @return
      */
-    public static Aeronau aeronauFactory(Class<?> tipus)
-    {
-                         
-        return ret;    
+    public static Aeronau aeronauFactory(Class<?> tipus) {
+
+        return ret;
     }
-    
-   
+
     /**
      * REtorna una llista de l'entitat demanada amb dades ficticies
+     *
      * @param elements quantitat d'elements a retornar
-     * @return 
+     * @return
      */
-    public static List<Soldat> mecanicsFactory(int elements)
-    {
-                         
-        return ret;    
+    public static List<Soldat> mecanicsFactory(int elements) {
+
+       return ret;
     }
-    
+
     /**
      * Retorna una llista de pilots amb dades ficticies
+     *
      * @param elements quantitat d'elements a retornar
-     * @return 
+     * @return
      */
-    public static List<Soldat> pilotsFactory(int elements)
-    {
-        
-                        
-        return ret;    
+    public static List<Soldat> pilotsFactory(int elements) {
+
+        return ret;
     }
-    
-     /**
+
+    /**
      * Retorna una llista de missions amb dades ficticies
+     *
      * @param elements quantitat d'elements a retornar
-     * @return 
+     * @return
      */
-    public static List<Missio> missionsFactory(int elements)
-    {
-       
-                        
-        return ret;    
+    public static List<Missio> missionsFactory(int elements) {
+
+        return ret;
     }
-    
+
     /**
      * Crea una instancia de Mecanic o Pilot segons el paràmetre subministrat
+     *
      * @param tipus (macanic o pilot)
-     * @return 
+     * @return
      */
-    public static Soldat soldatFactory(Class<?> tipus)
-    {    
-        
-                         
-        return ret;    
+    public static Soldat soldatFactory(Class<?> tipus) {
+
+        return ret;
     }
-    
+
     /**
      * Retorna una instancia de missio amb dades ficticies
-     * @return 
+     *
+     * @return
      */
-    public static Missio missioFactory()
-    {
-                      
+    public static Missio missioFactory() {
+
         return ret;
-        
+
     }
-    
+
 }

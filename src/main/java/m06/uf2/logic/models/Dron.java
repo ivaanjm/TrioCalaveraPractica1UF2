@@ -8,41 +8,38 @@ package m06.uf2.logic.models;
 
 public class Dron extends Autonoma{
     
-  private  boolean isCom;
-  private boolean isEspia;
+  private  Integer alturaMax;
+  private Integer distanciaMax;
 
     public Dron(int id, String nomAeronau, int seients) {
         super(id, nomAeronau, seients);
     }
 
-    public Dron(boolean isDron, boolean isEspia, int id, String nomAeronau, int seients) {
+    public Dron(Integer alturaMax, Integer distanciaMax, int id, String nomAeronau, int seients) {
         super(id, nomAeronau, seients);
-        this.isDron = isDron;
-        this.isEspia = isEspia;
+        this.alturaMax = alturaMax;
+        this.distanciaMax = distanciaMax;
     }
 
-    public Dron(boolean isDron, boolean isEspia, boolean isAutonoma, Integer KmAutonomia, int id, String nomAeronau, int seients) {
-        super(isAutonoma, KmAutonomia, id, nomAeronau, seients);
-        this.isDron = isDron;
-        this.isEspia = isEspia;
+    public Dron(Integer alturaMax, Integer distanciaMax, Integer velocidadMax, Integer KmAutonomia, int id, String nomAeronau, int seients) {
+        super(velocidadMax, KmAutonomia, id, nomAeronau, seients);
+        this.alturaMax = alturaMax;
+        this.distanciaMax = distanciaMax;
     }
 
-    public boolean isIsDron() {
-        return isDron;
+    public Integer getAlturaMax() {
+        return alturaMax;
     }
 
-    public void setIsDron(boolean isDron) {
-        this.isDron = isDron;
+    public void setAlturaMax(Integer alturaMax) {
+        this.alturaMax = alturaMax;
     }
 
-    public boolean isIsEspia() {
-        return isEspia;
+    public Integer getDistanciaMax() {
+        return distanciaMax;
     }
 
-    public void setIsEspia(boolean isEspia) {
-        this.isEspia = isEspia;
-    }
-    
-
-    
+    public void setDistanciaMax(Integer distanciaMax) {
+        this.distanciaMax = distanciaMax;
+    }    
 }
