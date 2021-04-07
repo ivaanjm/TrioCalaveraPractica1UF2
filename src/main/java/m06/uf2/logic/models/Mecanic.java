@@ -19,7 +19,7 @@ import javax.persistence.Table;
 public class Mecanic extends Soldat {
 
     @OneToOne(cascade = {CascadeType.ALL})
-    private Pilotada pilotada;
+    private Pilotada pilotada; // se añade una nave a mecanico
 
     public Mecanic(Integer id, String rango, String nombre, String apellido, String esp) {
         super(id, rango, nombre, apellido, esp);
