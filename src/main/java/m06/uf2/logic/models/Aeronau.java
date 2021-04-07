@@ -23,11 +23,11 @@ public abstract class Aeronau {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
-    private int id;
+    private int id; // Identificador único
     @Column
-    private String nomAeronau;
+    private String nomAeronau; // Nombre del aeronave
     @Column
-    private String tipo;
+    private String tipo; // Tipo de aeronave: 
     @ManyToMany(cascade = {CascadeType.ALL})
     private List<Missio> Missions = new ArrayList<>();
     
