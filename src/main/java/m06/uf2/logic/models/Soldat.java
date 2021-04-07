@@ -24,15 +24,15 @@ public abstract class Soldat {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
-    private Integer id;
+    private Integer id;// Se asigna automaticamente un identificador 
     @Column
-    private String rango;
+    private String rango; //  rango del soldado 
     @Column
-    private String nombre;
+    private String nombre; // Nombre del soldado
     @Column
-    private String apellido;
+    private String apellido; // Apellido del soldado 
     @Column
-    private String esp;// Especialización
+    private String esp;// Especialización del soldado (piloto,mecanico)
 
     public Soldat(Integer id, String rango, String nombre, String apellido, String esp) {
         this.id = id;
