@@ -20,7 +20,6 @@ import m06.uf2.logic.models.Pilot;
 import m06.uf2.logic.models.Dron;
 import m06.uf2.logic.models.Aeronau;
 import m06.uf2.logic.models.Pilotada;
-import org.hibernate.Session;
 
 /**
  *
