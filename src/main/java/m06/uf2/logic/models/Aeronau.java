@@ -29,7 +29,7 @@ public abstract class Aeronau {
     @Column
     private String tipo; // Tipo de aeronave: Transport, Dron o Combat
     @ManyToMany(cascade = {CascadeType.ALL})
-    private List<Missio> Missions = new ArrayList<>();
+    private List<Missio> Missions = new ArrayList<>(); // Lista que contiene las missiones
     
     
     public Aeronau(int id, String nomAeronau, String tipo) {
