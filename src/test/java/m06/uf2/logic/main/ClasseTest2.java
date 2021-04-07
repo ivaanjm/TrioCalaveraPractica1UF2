@@ -1,10 +1,5 @@
 package m06.uf2.logic.main;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 import java.util.List;
 import static junit.framework.TestCase.assertEquals;
@@ -56,13 +51,12 @@ public class ClasseTest2 {
                 
         p = (Pilot)ProjectAPI.soldatFactory(Pilot.class);
         ap = (Pilotada)ProjectAPI.aeronauFactory(Combat.class);
-         
         ProjectAPI.addPilotToAeronauPilotada(p, ap);
         
         session.save(p);
         session.save(ap);
         
-        assertEquals(ap.getPiloto().getId(), p.getId());
+        assertEquals(ap.getPilotAeronau().getId(), p.getId());
         
         session.getTransaction().commit();
         session.close();
@@ -109,7 +103,7 @@ public class ClasseTest2 {
         session.getTransaction().commit();
         session.refresh(a);
         
-        Missio m2 = (Missio)session.get(Missio.class, a.getMisiones().get(0).getId());
+        Missio m2 = (Missio)session.get(Missio.class, a.getMissions().get(0).getId());
         assertEquals(m2.getAeronaus().contains(a), true);
         
         session.close();

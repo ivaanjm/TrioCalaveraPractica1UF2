@@ -9,26 +9,24 @@ package m06.uf2.logic.models;
  *
  * @author mitra
  */
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
+@Table
 public class Pilot extends Soldat {
 
-
-    @OneToOne
+    @OneToOne(targetEntity = Pilotada.class)
     private Pilotada pilotada;
+
 
     public Pilot(Integer id, String rango, String nombre, String apellido, String esp) {
         super(id, rango, nombre, apellido, esp);
     }
 
-    public Pilot( Pilotada pilotada, Integer id, String rango, String nombre, String apellido, String esp) {
+    public Pilot(Pilotada pilotada, Integer id, String rango, String nombre, String apellido, String esp) {
         super(id, rango, nombre, apellido, esp);
         this.pilotada = pilotada;
     }

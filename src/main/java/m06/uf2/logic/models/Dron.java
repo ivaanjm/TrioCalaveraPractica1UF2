@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
+@Table
 public class Dron extends Autonoma {
 
     @Column

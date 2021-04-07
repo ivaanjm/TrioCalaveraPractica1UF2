@@ -30,7 +30,7 @@ public abstract class Aeronau {
     @Column
     private String tipo;
     @ManyToMany(cascade = {CascadeType.ALL})
-    private List<Missio> misiones = new ArrayList<>();
+    private List<Missio> Missions = new ArrayList<>();
     
     
     public Aeronau(int id, String nomAeronau, String tipo) {
@@ -64,17 +64,19 @@ public abstract class Aeronau {
     public void setNomAeronau(String nomAeronau) {
         this.nomAeronau = nomAeronau;
     }
-    public List<Missio> getMisiones() {
-        return misiones;
+
+    public List<Missio> getMissions() {
+        return Missions;
     }
 
-    public void setMisiones(List<Missio> misiones) {
-        this.misiones = misiones;
+    public void setMissions(List<Missio> Missions) {
+        this.Missions = Missions;
     }
+
 
     @Override
     public String toString() {
-        return "Aeronau{" + "id=" + id + ", nomAeronau=" + nomAeronau + ", tipo=" + tipo + ", misiones=" + misiones + '}';
+        return "Aeronau{" + "id=" + id + ", nomAeronau=" + nomAeronau + ", tipo=" + tipo + ", misiones=" + Missions + '}';
     }
 
 }

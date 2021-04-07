@@ -23,6 +23,7 @@ import javax.persistence.Table;
  * @author mitra
  */
 @Entity
+@Table
 public class Missio {
 
     @Id
@@ -35,7 +36,7 @@ public class Missio {
     private String destino;
     @Column
     private Date fecha;
-    @ManyToMany(cascade = {CascadeType.ALL}, mappedBy = "misiones")
+    @ManyToMany(cascade = {CascadeType.ALL}, mappedBy = "Missions")
     private List<Aeronau> Aeronaus ;
     
 

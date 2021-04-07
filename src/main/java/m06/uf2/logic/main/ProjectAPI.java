@@ -6,14 +6,10 @@
 package m06.uf2.logic.main;
 
 import com.github.javafaker.Faker;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.Iterator;
+
 import java.util.List;
-import java.util.ListIterator;
+
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
 import m06.uf2.logic.models.Combat;
 import m06.uf2.logic.models.Transport;
 import m06.uf2.logic.models.Mecanic;
@@ -61,6 +57,7 @@ public class ProjectAPI {
      * @return
      */
     public static Aeronau addMissionsToAeronau(List<Missio> lm, Aeronau a) {
+       
         List<Aeronau> aeronaus = null;
         aeronaus.add(a);
         for (Missio missio : lm) {
@@ -79,11 +76,8 @@ public class ProjectAPI {
      * @return
      */
     public static Aeronau addPilotToAeronauPilotada(Pilot p, Pilotada a) {
-        Session session = SingleSession.getSesio();
-        session.beginTransaction();
-        System.out.println("Piloto "+p.toString());
-        System.out.println("Nave pilotda " + a.toString());
-        a.setPiloto(p);
+       
+        a.setPilotAeronau(p);
         return a;
     }
 
@@ -100,18 +94,17 @@ public class ProjectAPI {
         Faker f = new Faker();
         switch (tipus.getSimpleName().toLowerCase()) {
             case "transport":
-                 
                 ret = new Transport(0, f.name().firstName(), tipus.getSimpleName().toLowerCase()) {
                 };
                 break;
             case "combat":
-               
+
                 ret = new Combat(0, f.name().firstName(), tipus.getSimpleName().toLowerCase()) {
                 };
-                 
+
                 break;
             case "dron":
-               
+
                 ret = new Dron(0, f.name().firstName(), tipus.getSimpleName().toLowerCase()) {
                 };
                 break;
@@ -129,10 +122,10 @@ public class ProjectAPI {
      * @return
      */
     public static List<Soldat> mecanicsFactory(int elements) {
-        Session session = SingleSession.getSesio();
-        session.beginTransaction();
-        List<Soldat> completa = session.createQuery("FROM Soldat").list();
-        List<Soldat> ret = null;
+       
+    
+       List<Soldat> ret = null;
+        /*
         for (Soldat soldat : completa) {
             do {
                 if (soldat.getEsp().toLowerCase().equals("mecanic")) {
@@ -144,7 +137,7 @@ public class ProjectAPI {
         if (ret.size() < elements) {
             System.out.println("No hay tantos mecanicos, el numero maximo es de :" + ret.size());
         }
-        // session.close();
+        // session.close();*/
         return ret;
     }
 
@@ -155,9 +148,8 @@ public class ProjectAPI {
      * @return
      */
     public static List<Soldat> pilotsFactory(int elements) {
-        Session session = SingleSession.getSesio();
-        session.beginTransaction();
-        List<Soldat> completa = session.createQuery("FROM Soldat").list();
+        
+        List<Soldat> completa = null;
         List<Soldat> ret = null;
         if (!completa.isEmpty()) {
             for (Soldat soldat : completa) {
@@ -185,9 +177,8 @@ public class ProjectAPI {
      * @return
      */
     public static List<Missio> missionsFactory(int elements) {
-        Session session = SingleSession.getSesio();
-        session.beginTransaction();
-        List<Missio> completa = session.createQuery("FROM Missio").list();
+      
+        List<Missio> completa =null;
         List<Missio> ret = null;
         if (!completa.isEmpty()) {
             for (Missio missio : completa) {
@@ -226,11 +217,10 @@ public class ProjectAPI {
                 break;
             default:
                 System.out.println("Exepción solo pilotos o mecanicos ");
-              
+
                 break;
         }
-        
-       
+
         return ret;
     }
 

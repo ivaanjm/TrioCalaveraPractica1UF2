@@ -14,6 +14,7 @@ import javax.persistence.Table;
  * @author mitra
  */
 @Entity
+@Table
 public class Combat extends Pilotada {
 
     @Column

@@ -10,7 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "transport")
+@Table
 public class Transport extends Pilotada {
 
     @Column

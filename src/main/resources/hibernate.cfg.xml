@@ -19,9 +19,6 @@
         <mapping class="m06.uf2.logic.models.Pilot"/>
         <mapping class="m06.uf2.logic.models.Transport"/>
         
-         <mapping class="m06.uf2.logic.models.Aeronau"/>
-          <mapping class="m06.uf2.logic.models.Autonoma"/>
-           <mapping class="m06.uf2.logic.models.Pilotada"/>
-            <mapping class="m06.uf2.logic.models.Soldat"/>
+      
     </session-factory>
 </hibernate-configuration>

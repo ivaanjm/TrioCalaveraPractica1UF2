@@ -8,6 +8,7 @@ package m06.uf2.logic.models;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -20,38 +21,42 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Pilotada extends Aeronau {
 
-    @OneToOne
-    private Pilot piloto;
+    
+    @OneToOne(targetEntity = Pilot.class, cascade = CascadeType.ALL)
+    private Pilot PilotAeronau;
 
     @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name = "pilotada_id")
-    private List<Mecanic> mecanic = new ArrayList<>();
+    private List<Mecanic> Mecanic = new ArrayList<>();
 
     public Pilotada(int id, String nomAeronau, String tipo) {
         super(id, nomAeronau, tipo);
     }
 
-    public Pilotada(Pilot piloto, int id, String nomAeronau, String tipo) {
+    public Pilotada(Pilot PilotAeronau, int id, String nomAeronau, String tipo) {
         super(id, nomAeronau, tipo);
-        this.piloto = piloto;
+        this.PilotAeronau = PilotAeronau;
     }
 
-
-
-    public Pilot getPiloto() {
-        return piloto;
+    public Pilot getPilotAeronau() {
+        return PilotAeronau;
     }
 
-    public void setPiloto(Pilot piloto) {
-        this.piloto = piloto;
+    public void setPilotAeronau(Pilot PilotAeronau) {
+        this.PilotAeronau = PilotAeronau;
     }
 
     public List<Mecanic> getMecanic() {
-        return mecanic;
+        return Mecanic;
     }
 
-    public void setMecanic(List<Mecanic> mecanic) {
-        this.mecanic = mecanic;
+    public void setMecanic(List<Mecanic> Mecanic) {
+        this.Mecanic = Mecanic;
     }
-    
+
+
+
+
+   
+ 
 }

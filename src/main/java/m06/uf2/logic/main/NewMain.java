@@ -28,12 +28,11 @@ public class NewMain {
     public static void main(String[] args) {
         Faker f = new Faker();
 
-//        java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF);
-//        Session session = SingleSession.getSesio();
-//        session.beginTransaction();
+        java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF);
+        Session session = SingleSession.getSesio();
+        session.beginTransaction();
         //  Soldat soldat= ProjectAPI.soldatFactory(Mecanic.class);
         // System.out.println(soldat.getApellido());
-
         System.out.println(Utils.randomRango());
     }
 }
