@@ -15,7 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import m06.uf2.logic.models.Combat;
+import m06.uf2.logic.models.Missio;
 import m06.uf2.logic.models.Pilotada;
+import m06.uf2.logic.models.Transport;
 import org.hibernate.Session;
 
 /**
@@ -29,14 +31,16 @@ public class NewMain {
      */
     public static void main(String[] args) {
         Faker f = new Faker();
-        List<Soldat> ret = ProjectAPI.mecanicsFactory(20);
-        if (ret.isEmpty()) {
-            System.out.println("La lista esta vacia");
-            
+        List<Missio> ret = ProjectAPI.missionsFactory(20);
+        for (Missio missio : ret) {
+            System.out.println(missio.toString());
         }
-        for (Soldat soldat : ret) {
-            System.out.println(soldat.toString());
-        }
+      
+       
+      
+       
+       
+       
 //        java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF);
 //        Session session = SingleSession.getSesio();
 //        session.beginTransaction();

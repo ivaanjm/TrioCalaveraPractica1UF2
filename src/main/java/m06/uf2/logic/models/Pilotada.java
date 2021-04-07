@@ -25,7 +25,7 @@ public abstract class Pilotada extends Aeronau {
 
     @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name = "pilotada_id")
-    private List<Mecanic> Mecanic = new ArrayList<>();
+    private List<Mecanic> Mecanics ;
 
     public Pilotada(int id, String nomAeronau, String tipo) {
         super(id, nomAeronau, tipo);
@@ -44,12 +44,12 @@ public abstract class Pilotada extends Aeronau {
         this.PilotAeronau = PilotAeronau;
     }
 
-    public List<Mecanic> getMecanic() {
-        return Mecanic;
+    public List<Mecanic> getMecanics() {
+        return Mecanics;
     }
 
-    public void setMecanic(List<Mecanic> Mecanic) {
-        this.Mecanic = Mecanic;
+    public void setMecanics(List<Mecanic> Mecanic) {
+        this.Mecanics = Mecanic;
     }
 
 

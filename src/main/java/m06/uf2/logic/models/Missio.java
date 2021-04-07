@@ -86,6 +86,11 @@ public class Missio {
         this.Aeronaus = Aeronaus;
     }
 
+    @Override
+    public String toString() {
+        return "Missio{" + "id=" + id + ", nombre=" + nombre + ", destino=" + destino + ", fecha=" + fecha + ", Aeronaus=" + Aeronaus + '}';
+    }
+
    
 
 }

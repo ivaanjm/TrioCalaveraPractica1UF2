@@ -76,12 +76,12 @@ public class ClasseTest2 {
         v = ProjectAPI.addMecanicsToPilotada(ProjectAPI.mecanicsFactory(2),(Pilotada)ProjectAPI.aeronauFactory(Transport.class));
         session.save(v);
         ve = (Pilotada)session.get(Transport.class, v.getId());
-        assertEquals(ve.getMecanic().size(), 2);
+        assertEquals(ve.getMecanics().size(), 2);
         
         v = ProjectAPI.addMecanicsToPilotada(ProjectAPI.mecanicsFactory(4),(Pilotada)ProjectAPI.aeronauFactory(Combat.class));
         session.save(v);
         ve = (Pilotada)session.get(Combat.class, v.getId());
-        assertEquals(ve.getMecanic().size(), 4);
+        assertEquals(ve.getMecanics().size(), 4);
         
         session.getTransaction().commit();
         session.close();
