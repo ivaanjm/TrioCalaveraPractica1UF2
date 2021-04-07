@@ -58,14 +58,13 @@ public class ProjectAPI {
      * @return
      */
     public static Aeronau addMissionsToAeronau(List<Missio> lm, Aeronau a) {
-
-        List<Aeronau> aeronaus = null;
+        List<Aeronau> aeronaus =  new ArrayList<>();
         aeronaus.add(a);
+        
+        
         for (Missio missio : lm) {
             missio.setAeronaus(aeronaus);
-
         }
-
         return a;
     }
 
@@ -165,10 +164,12 @@ public class ProjectAPI {
      */
     public static List<Missio> missionsFactory(int elements) {
 
-        List<Missio> completa = null;
-        List<Missio> ret = null;
-        if (!completa.isEmpty()) {
-            for (Missio missio : completa) {
+   
+
+        List<Missio> ret = new ArrayList();
+        List<Missio> completa = new ArrayList();
+        if (!completa.isEmpty()) {  // Si no esta vacía
+            for (Missio missio : completa) { // Tipo mission || variable: mission || Se recorre completa
                 do {
                     ret.add(missio);
                 } while (ret.size() <= elements);
@@ -176,7 +177,6 @@ public class ProjectAPI {
         } else {
             System.out.println("La lista esta vacia ");
         }
-
         if (ret.size() < elements) {
             System.out.println("No hay tantas Misiones, el numero maximo es de :" + ret.size());
         }

@@ -47,7 +47,21 @@ public class Utils {
         rangos.add("General de división Teniente general General del Aire");
         rangos.add("Capitán general");
         Random random = new Random();
-        return rangos.get(random.nextInt(rangos.size()-1));
+        return rangos.get(random.nextInt(rangos.size() - 1));
+    }
+
+    public static String randomMissions() {
+        ArrayList<String> missiones = new ArrayList<String>();
+        missiones.add("Asaltar la Casa Blanca");
+        missiones.add("Rescate");
+        missiones.add("Asesinato");
+        missiones.add("Asalto");
+        missiones.add("Secreta");
+
+        Random random = new Random();
+        return missiones.get(random.nextInt((missiones.size() - 1)));
+            
+        
     }
 
 }
