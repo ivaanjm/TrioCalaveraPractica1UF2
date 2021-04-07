@@ -34,18 +34,18 @@ public class ProjectAPI {
      * @param p Aeronau
      * @return
      */
-    public static Aeronau addMecanicsToPilotada(List<Soldat> lo, Pilotada p) {
+    public static Aeronau addMecanicsToPilotada(List<Soldat> lo, Pilotada p) throws APIException {
         List<Mecanic> ret = new ArrayList<>();
 
         for (Soldat soldat : lo) {
             if (soldat.getEsp().toLowerCase().equals("mecanic")) {
-                ret.add(new Mecanic(p, soldat.getId(),soldat.getRango(), soldat.getNombre(), soldat.getApellido(),soldat.getEsp()));
+                ret.add(new Mecanic(p, soldat.getId(), soldat.getRango(), soldat.getNombre(), soldat.getApellido(), soldat.getEsp()));
             }
         }
         if (!ret.isEmpty()) {
             p.setMecanics(ret);
         } else {
-            System.out.println("error no hay mecanicos");
+            throw new APIException("error no hay mecanicos");
         }
         return p;
     }
@@ -83,7 +83,7 @@ public class ProjectAPI {
      * @param tipus (Dron, Transport, Combat)
      * @return
      */
-    public static Aeronau aeronauFactory(Class<?> tipus) {
+    public static Aeronau aeronauFactory(Class<?> tipus) throws APIException {
         Aeronau ret = null;
         Faker f = new Faker();
         switch (tipus.getSimpleName().toLowerCase()) {
@@ -99,8 +99,7 @@ public class ProjectAPI {
                 ret = new Dron(0, f.name().firstName(), tipus.getSimpleName().toLowerCase());
                 break;
             default:
-                System.out.println("Exepción solo tipos de naves ");
-                break;
+                throw new APIException("Exepción solo tipos de naves ");
         }
         return ret;
     }
@@ -146,12 +145,10 @@ public class ProjectAPI {
      */
     public static List<Missio> missionsFactory(int elements) {
 
-   
-
-         Faker f = new Faker();
+        Faker f = new Faker();
         List<Missio> ret = new ArrayList<>();
         for (int i = 0; i < elements; i++) {
-            ret.add(new Missio(0, f.pokemon().name(), f.address().country(), f.date().future(Utils.getRandomNumberInRange(1, 100), TimeUnit.DAYS))) ;
+            ret.add(new Missio(0, f.pokemon().name(), f.address().country(), f.date().future(Utils.getRandomNumberInRange(1, 100), TimeUnit.DAYS)));
         }
 
         return ret;
@@ -163,7 +160,7 @@ public class ProjectAPI {
      * @param tipus (macanic o pilot)
      * @return
      */
-    public static Soldat soldatFactory(Class<?> tipus) {
+    public static Soldat soldatFactory(Class<?> tipus) throws APIException {
         Faker f = new Faker();
         Soldat ret = null;
         switch (tipus.getSimpleName().toLowerCase()) {
@@ -176,9 +173,7 @@ public class ProjectAPI {
 
                 break;
             default:
-                System.out.println("Exepción solo pilotos o mecanicos ");
-
-                break;
+                throw new APIException("Exepción solo pilotos o mecanicos ");
         }
 
         return ret;
