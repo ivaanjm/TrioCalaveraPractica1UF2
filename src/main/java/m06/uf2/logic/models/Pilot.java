@@ -19,7 +19,7 @@ import javax.persistence.Table;
 public class Pilot extends Soldat {
 
     @OneToOne(targetEntity = Pilotada.class)
-    private Pilotada pilotada;
+    private Pilotada pilotada; // se añade una nave al soldado piloto
 
 
     public Pilot(Integer id, String rango, String nombre, String apellido, String esp) {
