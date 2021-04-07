@@ -18,9 +18,9 @@ import javax.persistence.Table;
 public class Combat extends Pilotada {
 
     @Column
-    private String Arma;
+    private String Arma; // Tipo de arma que llevara la aeronave
     @Column
-    private String nombre;
+    private String nombre; // Nombre del arma
 
     public Combat(int id, String nomAeronau, String tipo) {
         super(id, nomAeronau, tipo);
