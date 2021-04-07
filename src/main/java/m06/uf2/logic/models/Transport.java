@@ -14,9 +14,9 @@ import javax.persistence.Table;
 public class Transport extends Pilotada {
 
     @Column
-    private String carga;
+    private String carga; // Tipo de carga que lleva la aeronave
     @Column
-    private String distanciaDestino;
+    private String distanciaDestino; // Distancia en KM del origen al destino
 
     public Transport(int id, String nomAeronau, String tipo) {
         super(id, nomAeronau, tipo);
