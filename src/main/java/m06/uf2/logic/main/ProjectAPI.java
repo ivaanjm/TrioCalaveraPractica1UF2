@@ -35,13 +35,14 @@ public class ProjectAPI {
      * @return
      */
     public static Aeronau addMecanicsToPilotada(List<Soldat> lo, Pilotada p) {
-        List<Mecanic> ret = null;
+        List<Mecanic> ret = new ArrayList<>();
+
         for (Soldat soldat : lo) {
             if (soldat.getEsp().toLowerCase().equals("mecanic")) {
-                ret.add(new Mecanic(soldat.getId(), soldat.getRango(), soldat.getNombre(), soldat.getApellido(), soldat.getEsp()));
+                ret.add(new Mecanic(p, soldat.getId(),soldat.getRango(), soldat.getNombre(), soldat.getApellido(),soldat.getEsp()));
             }
         }
-        if (ret != null) {
+        if (!ret.isEmpty()) {
             p.setMecanic(ret);
         } else {
             System.out.println("error no hay mecanicos");
@@ -121,9 +122,9 @@ public class ProjectAPI {
         Faker f = new Faker();
         List<Soldat> ret = new ArrayList<Soldat>();
         for (int i = 0; i < elements; i++) {
-             ret.add(new Mecanic(0, Utils.randomRango(), f.name().firstName(), f.name().fullName(), "Mecanic"));
+            ret.add(new Mecanic(0, Utils.randomRango(), f.name().firstName(), f.name().fullName(), "Mecanic"));
         }
-        
+
         return ret;
     }
 
