@@ -14,9 +14,9 @@ import javax.persistence.Table;
 public class Dron extends Autonoma {
 
     @Column
-    private Integer alturaMax;
+    private Integer alturaMax; // Altura máxima donde el dron puede llegar a volar.
     @Column
-    private Integer distanciaMax;
+    private Integer distanciaMax; // Distáncia máxima donde el dron puede llegar.
 
     public Dron(int id, String nomAeronau, String tipo) {
         super(id, nomAeronau, tipo);
