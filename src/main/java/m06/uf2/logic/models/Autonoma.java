@@ -16,9 +16,9 @@ import javax.persistence.Entity;
 public abstract class Autonoma extends Aeronau {
 
     @Column
-    private Integer velocidadMax;
+    private Integer velocidadMax; // Velocidad máxima aeronave
     @Column
-    private Integer KmAutonomia;
+    private Integer KmAutonomia; // Km capaz de recorrer
 
     public Autonoma(int id, String nomAeronau, String tipo) {
         super(id, nomAeronau, tipo);
