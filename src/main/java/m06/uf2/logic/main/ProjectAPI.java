@@ -94,19 +94,15 @@ public class ProjectAPI {
         Faker f = new Faker();
         switch (tipus.getSimpleName().toLowerCase()) {
             case "transport":
-                ret = new Transport(0, f.name().firstName(), tipus.getSimpleName().toLowerCase()) {
-                };
+                ret = new Transport(0, f.name().firstName(), tipus.getSimpleName().toLowerCase()) ;
                 break;
             case "combat":
 
-                ret = new Combat(0, f.name().firstName(), tipus.getSimpleName().toLowerCase()) {
-                };
+                ret = new Combat(0, f.name().firstName(), tipus.getSimpleName().toLowerCase());
 
                 break;
             case "dron":
-
-                ret = new Dron(0, f.name().firstName(), tipus.getSimpleName().toLowerCase()) {
-                };
+                ret = new Dron(0, f.name().firstName(), tipus.getSimpleName().toLowerCase());
                 break;
             default:
                 System.out.println("Exepción solo tipos de naves ");
@@ -207,12 +203,11 @@ public class ProjectAPI {
         Soldat ret = null;
         switch (tipus.getSimpleName().toLowerCase()) {
             case "pilot":
-                ret = new Pilot(0, Utils.randomRango(), f.name().firstName(), f.name().lastName(), tipus.getSimpleName()) {
-                };
+                ret = new Pilot(0, Utils.randomRango(), f.name().firstName(), f.name().fullName(), tipus.getSimpleName());
+                
                 break;
             case "mecanic":
-                ret = new Mecanic(0, Utils.randomRango(), f.name().firstName(), f.name().lastName(), tipus.getSimpleName()) {
-                };
+                ret = new Mecanic(0, Utils.randomRango(), f.name().firstName(), f.name().fullName(), tipus.getSimpleName());
 
                 break;
             default:

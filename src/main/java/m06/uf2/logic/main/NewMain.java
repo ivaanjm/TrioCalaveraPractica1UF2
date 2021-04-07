@@ -31,8 +31,14 @@ public class NewMain {
         java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF);
         Session session = SingleSession.getSesio();
         session.beginTransaction();
-        //  Soldat soldat= ProjectAPI.soldatFactory(Mecanic.class);
+        Pilot p = new Pilot(0, Utils.randomRango(), f.name().firstName(), f.name().fullName(), "piloto");
+        Combat ap =new Combat("cscs", "csdcsd", 0, "dcs", "dw");
+        ProjectAPI.addPilotToAeronauPilotada(p, ap);
+        session.save(p);
+        session.save(ap);
+        session.getTransaction().commit();
+        session.close();
         // System.out.println(soldat.getApellido());
-        System.out.println(Utils.randomRango());
+        System.out.println("Final ");
     }
 }
