@@ -6,6 +6,7 @@
 package m06.uf2.logic.main;
 
 import com.github.javafaker.Faker;
+import java.util.ArrayList;
 
 import java.util.List;
 
@@ -57,7 +58,7 @@ public class ProjectAPI {
      * @return
      */
     public static Aeronau addMissionsToAeronau(List<Missio> lm, Aeronau a) {
-       
+
         List<Aeronau> aeronaus = null;
         aeronaus.add(a);
         for (Missio missio : lm) {
@@ -76,7 +77,7 @@ public class ProjectAPI {
      * @return
      */
     public static Aeronau addPilotToAeronauPilotada(Pilot p, Pilotada a) {
-       
+
         a.setPilotAeronau(p);
         return a;
     }
@@ -94,7 +95,7 @@ public class ProjectAPI {
         Faker f = new Faker();
         switch (tipus.getSimpleName().toLowerCase()) {
             case "transport":
-                ret = new Transport(0, f.name().firstName(), tipus.getSimpleName().toLowerCase()) ;
+                ret = new Transport(0, f.name().firstName(), tipus.getSimpleName().toLowerCase());
                 break;
             case "combat":
 
@@ -118,22 +119,12 @@ public class ProjectAPI {
      * @return
      */
     public static List<Soldat> mecanicsFactory(int elements) {
-       
-    
-       List<Soldat> ret = null;
-        /*
-        for (Soldat soldat : completa) {
-            do {
-                if (soldat.getEsp().toLowerCase().equals("mecanic")) {
-                    ret.add(soldat);
-                }
-
-            } while (ret.size() <= elements);
+        Faker f = new Faker();
+        List<Soldat> ret = new ArrayList<Soldat>();
+        for (int i = 0; i < elements; i++) {
+             ret.add(new Mecanic(0, Utils.randomRango(), f.name().firstName(), f.name().fullName(), "Mecanic"));
         }
-        if (ret.size() < elements) {
-            System.out.println("No hay tantos mecanicos, el numero maximo es de :" + ret.size());
-        }
-        // session.close();*/
+        
         return ret;
     }
 
@@ -144,7 +135,7 @@ public class ProjectAPI {
      * @return
      */
     public static List<Soldat> pilotsFactory(int elements) {
-        
+
         List<Soldat> completa = null;
         List<Soldat> ret = null;
         if (!completa.isEmpty()) {
@@ -173,8 +164,8 @@ public class ProjectAPI {
      * @return
      */
     public static List<Missio> missionsFactory(int elements) {
-      
-        List<Missio> completa =null;
+
+        List<Missio> completa = null;
         List<Missio> ret = null;
         if (!completa.isEmpty()) {
             for (Missio missio : completa) {
@@ -204,7 +195,7 @@ public class ProjectAPI {
         switch (tipus.getSimpleName().toLowerCase()) {
             case "pilot":
                 ret = new Pilot(0, Utils.randomRango(), f.name().firstName(), f.name().fullName(), tipus.getSimpleName());
-                
+
                 break;
             case "mecanic":
                 ret = new Mecanic(0, Utils.randomRango(), f.name().firstName(), f.name().fullName(), tipus.getSimpleName());
