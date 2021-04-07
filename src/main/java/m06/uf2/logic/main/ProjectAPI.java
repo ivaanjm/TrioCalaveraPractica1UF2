@@ -79,7 +79,10 @@ public class ProjectAPI {
      * @return
      */
     public static Aeronau addPilotToAeronauPilotada(Pilot p, Pilotada a) {
+        Session session = SingleSession.getSesio();
+        session.beginTransaction();
         System.out.println("Piloto "+p.toString());
+        System.out.println("Nave pilotda " + a.toString());
         a.setPiloto(p);
         return a;
     }
@@ -113,7 +116,7 @@ public class ProjectAPI {
                 };
                 break;
             default:
-                System.out.println("Exepción solo pilotos o mecanicos ");
+                System.out.println("Exepción solo tipos de naves ");
                 break;
         }
         return ret;
@@ -227,7 +230,7 @@ public class ProjectAPI {
                 break;
         }
         
-        System.out.println(ret.toString());
+       
         return ret;
     }
 
