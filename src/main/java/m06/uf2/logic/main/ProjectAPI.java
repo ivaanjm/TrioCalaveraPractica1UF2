@@ -97,19 +97,19 @@ public class ProjectAPI {
         Faker f = new Faker();
         switch (tipus.getSimpleName().toLowerCase()) {
             case "transport":
-                 System.out.println("transporte");
-                ret = new Aeronau(0, f.name().firstName(), tipus.getSimpleName().toLowerCase()) {
+                 
+                ret = new Transport(0, f.name().firstName(), tipus.getSimpleName().toLowerCase()) {
                 };
                 break;
             case "combat":
-                System.out.println("combate");
-                ret = new Aeronau(0, f.name().firstName(), tipus.getSimpleName().toLowerCase()) {
+               
+                ret = new Combat(0, f.name().firstName(), tipus.getSimpleName().toLowerCase()) {
                 };
-                 System.out.println("Aeronave  "+ ret.toString());
+                 
                 break;
             case "dron":
-                 System.out.println("dron");
-                ret = new Aeronau(0, f.name().firstName(), tipus.getSimpleName().toLowerCase()) {
+               
+                ret = new Dron(0, f.name().firstName(), tipus.getSimpleName().toLowerCase()) {
                 };
                 break;
             default:
