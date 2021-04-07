@@ -21,11 +21,11 @@ public abstract class Pilotada extends Aeronau {
 
     
     @OneToOne(targetEntity = Pilot.class, cascade = CascadeType.ALL)
-    private Pilot PilotAeronau;
+    private Pilot PilotAeronau; // Relacion 1 - 1 a pilot
 
     @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name = "pilotada_id")
-    private List<Mecanic> Mecanics ;
+    private List<Mecanic> Mecanics ; // Relacion 1 - n a Mecanic
 
     public Pilotada(int id, String nomAeronau, String tipo) {
         super(id, nomAeronau, tipo);
