@@ -33,7 +33,6 @@ public class Utils {
         rangos.add("Soldado de primera");
         rangos.add("Cabo");
         rangos.add("Cabo primero");
-        rangos.add("Cabo primero");
         rangos.add("Cabo mayor");
         rangos.add("Sargento");
         rangos.add("Sargento primero");
@@ -48,7 +47,7 @@ public class Utils {
         rangos.add("General de división Teniente general General del Aire");
         rangos.add("Capitán general");
         Random random = new Random();
-        return rangos.get(random.nextInt(rangos.size()));
+        return rangos.get(random.nextInt(rangos.size()-1));
     }
 
 }
