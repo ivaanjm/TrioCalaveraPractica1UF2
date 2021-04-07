@@ -11,6 +11,8 @@ import m06.uf2.logic.models.Soldat;
 import m06.uf2.logic.models.Mecanic;
 
 import java.lang.Class;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import m06.uf2.logic.models.Combat;
 import m06.uf2.logic.models.Pilotada;
@@ -27,17 +29,24 @@ public class NewMain {
      */
     public static void main(String[] args) {
         Faker f = new Faker();
-
-        java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF);
-        Session session = SingleSession.getSesio();
-        session.beginTransaction();
-        Pilot p = new Pilot(0, Utils.randomRango(), f.name().firstName(), f.name().fullName(), "piloto");
-        Combat ap =new Combat("cscs", "csdcsd", 0, "dcs", "dw");
-        ProjectAPI.addPilotToAeronauPilotada(p, ap);
-        session.save(p);
-        session.save(ap);
-        session.getTransaction().commit();
-        session.close();
+        List<Soldat> ret = ProjectAPI.mecanicsFactory(20);
+        if (ret.isEmpty()) {
+            System.out.println("La lista esta vacia");
+            
+        }
+        for (Soldat soldat : ret) {
+            System.out.println(soldat.toString());
+        }
+//        java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF);
+//        Session session = SingleSession.getSesio();
+//        session.beginTransaction();
+//        Pilot p = new Pilot(0, Utils.randomRango(), f.name().firstName(), f.name().fullName(), "piloto");
+//        Combat ap =new Combat("cscs", "csdcsd", 0, "dcs", "dw");
+//        ProjectAPI.addPilotToAeronauPilotada(p, ap);
+//        session.save(p);
+//        session.save(ap);
+//        session.getTransaction().commit();
+//        session.close();
         // System.out.println(soldat.getApellido());
         System.out.println("Final ");
     }
