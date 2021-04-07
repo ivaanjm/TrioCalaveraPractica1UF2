@@ -28,13 +28,13 @@ public class Missio {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
-    private int id;
+    private int id; // Identificador de mision
     @Column
-    private String nombre;
+    private String nombre; // nombre en clave de la mision
     @Column
-    private String destino;
+    private String destino; // lugar de destino de la mision 
     @Column
-    private Date fecha;
+    private Date fecha; // fecha de la mision 
     @ManyToMany(cascade = {CascadeType.ALL}, mappedBy = "Missions")
     private List<Aeronau> Aeronaus ;
     
