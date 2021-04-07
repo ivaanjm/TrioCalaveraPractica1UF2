@@ -55,7 +55,7 @@ public class ClasseTest2 {
         Pilotada ap;
                 
         p = (Pilot)ProjectAPI.soldatFactory(Pilot.class);
-       
+        System.out.println("piloto"+ p.toString());
         ap = (Pilotada)ProjectAPI.aeronauFactory(Combat.class);
          
         ProjectAPI.addPilotToAeronauPilotada(p, ap);

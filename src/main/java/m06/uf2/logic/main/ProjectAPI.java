@@ -62,12 +62,12 @@ public class ProjectAPI {
      */
     public static Aeronau addMissionsToAeronau(List<Missio> lm, Aeronau a) {
         List<Aeronau> aeronaus = null;
-         aeronaus.add(a);
+        aeronaus.add(a);
         for (Missio missio : lm) {
-            missio.setAeronaus(aeronaus);    
-           
+            missio.setAeronaus(aeronaus);
+
         }
-      
+
         return a;
     }
 
@@ -79,6 +79,7 @@ public class ProjectAPI {
      * @return
      */
     public static Aeronau addPilotToAeronauPilotada(Pilot p, Pilotada a) {
+        System.out.println("Piloto "+p.toString());
         a.setPiloto(p);
         return a;
     }
@@ -96,14 +97,18 @@ public class ProjectAPI {
         Faker f = new Faker();
         switch (tipus.getSimpleName().toLowerCase()) {
             case "transport":
+                 System.out.println("transporte");
                 ret = new Aeronau(0, f.name().firstName(), tipus.getSimpleName().toLowerCase()) {
                 };
                 break;
             case "combat":
+                System.out.println("combate");
                 ret = new Aeronau(0, f.name().firstName(), tipus.getSimpleName().toLowerCase()) {
                 };
+                 System.out.println("Aeronave  "+ ret.toString());
                 break;
             case "dron":
+                 System.out.println("dron");
                 ret = new Aeronau(0, f.name().firstName(), tipus.getSimpleName().toLowerCase()) {
                 };
                 break;
@@ -130,7 +135,7 @@ public class ProjectAPI {
                 if (soldat.getEsp().toLowerCase().equals("mecanic")) {
                     ret.add(soldat);
                 }
-                
+
             } while (ret.size() <= elements);
         }
         if (ret.size() < elements) {
@@ -157,13 +162,13 @@ public class ProjectAPI {
                     if (soldat.getEsp().toLowerCase().equals("pilot")) {
                         ret.add(soldat);
                     }
-                    
+
                 } while (ret.size() <= elements);
             }
         } else {
             System.out.println("La lista esta vacia ");
         }
-        
+
         if (ret.size() < elements) {
             System.out.println("No hay tantos pilotos, el numero maximo es de :" + ret.size());
         }
@@ -190,7 +195,7 @@ public class ProjectAPI {
         } else {
             System.out.println("La lista esta vacia ");
         }
-        
+
         if (ret.size() < elements) {
             System.out.println("No hay tantas Misiones, el numero maximo es de :" + ret.size());
         }
@@ -207,21 +212,22 @@ public class ProjectAPI {
         Faker f = new Faker();
         Soldat ret = null;
         switch (tipus.getSimpleName().toLowerCase()) {
-            case "piloto":
-                ret = new Soldat(0, Utils.randomRango(), f.name().firstName(), f.name().lastName(), tipus.getSimpleName()) {
+            case "pilot":
+                ret = new Pilot(0, Utils.randomRango(), f.name().firstName(), f.name().lastName(), tipus.getSimpleName()) {
                 };
-                System.out.println("piloto");
                 break;
-            case "mecanico":
-                ret = new Soldat(0, Utils.randomRango(), f.name().firstName(), f.name().lastName(), tipus.getSimpleName()) {
+            case "mecanic":
+                ret = new Mecanic(0, Utils.randomRango(), f.name().firstName(), f.name().lastName(), tipus.getSimpleName()) {
                 };
-                System.out.println("mecanico");
+
                 break;
             default:
                 System.out.println("Exepción solo pilotos o mecanicos ");
-                System.out.println(tipus.getSimpleName().toLowerCase());
+              
                 break;
         }
+        
+        System.out.println(ret.toString());
         return ret;
     }
 
@@ -235,5 +241,5 @@ public class ProjectAPI {
         Missio ret = new Missio(0, f.pokemon().name(), f.address().country(), f.date().future(f.number().randomDigit(), TimeUnit.DAYS));
         return ret;
     }
-    
+
 }

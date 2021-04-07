@@ -82,5 +82,10 @@ public abstract class Soldat {
         this.esp = esp;
     }
 
+    @Override
+    public String toString() {
+        return "Soldat{" + "id=" + id + ", rango=" + rango + ", nombre=" + nombre + ", apellido=" + apellido + ", esp=" + esp + '}';
+    }
+
 
 }
