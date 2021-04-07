@@ -21,8 +21,8 @@ public class Combat extends Pilotada {
     @Column
     private String nombre;
 
-    public Combat(Pilot piloto, int id, String nomAeronau, String tipo) {
-        super(piloto, id, nomAeronau, tipo);
+    public Combat(int id, String nomAeronau, String tipo) {
+        super(id, nomAeronau, tipo);
     }
 
     public Combat(String Arma, String nombre, int id, String nomAeronau, String tipo) {
@@ -45,9 +45,6 @@ public class Combat extends Pilotada {
         this.Arma = Arma;
     }
 
-
-
-
     public String getNombre() {
         return nombre;
     }
@@ -55,6 +52,5 @@ public class Combat extends Pilotada {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
 
 }

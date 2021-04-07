@@ -72,4 +72,9 @@ public abstract class Aeronau {
         this.misiones = misiones;
     }
 
+    @Override
+    public String toString() {
+        return "Aeronau{" + "id=" + id + ", nomAeronau=" + nomAeronau + ", tipo=" + tipo + ", misiones=" + misiones + '}';
+    }
+
 }
